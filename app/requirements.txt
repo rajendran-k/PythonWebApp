@@ -1,8 +1,2 @@
 flask
-pylint-flask
-Flask-API
-requests
-flasgger
-pytest-flask
-pytest-cov
 
