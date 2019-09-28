@@ -1,11 +1,5 @@
 node {
-    def app
-
-    stage('Clone repository') {
-        /* Cloning the Repository to our Workspace */
-
-        checkout src
-    }
+    def app    
 
     stage('Build image') {
         /* This builds the actual image */
