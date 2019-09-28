@@ -7,13 +7,11 @@ node {
 			pwd
         }
     }
-		
-        stage('lint HTML') {
-            steps {        
-              sh 'echo "syntax checking"'     
+	stage('Build image') {
+        /sh 'echo "syntax checking"'     
               sh 'tidy -q -e *.html'
-            }
-        }
+    }
+		
 
     stage('Build image') {
         /* This builds the actual image */
