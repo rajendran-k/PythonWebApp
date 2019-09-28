@@ -1,17 +1,10 @@
 node {
     def app 
-	stage('Test image') {
-        
-        app.inside {
-            echo "Tests passed"
-			pwd
-        }
-    }
-	stage('Build image') {
+	
+	stage('Build images') {
         /sh 'echo "syntax checking"'     
               sh 'tidy -q -e *.html'
-    }
-		
+    }		
 
     stage('Build image') {
         /* This builds the actual image */
