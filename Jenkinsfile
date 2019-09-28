@@ -1,5 +1,6 @@
 pipeline {
     agent any
+	 def app 
 
     stages {
         stage('lint HTML') {
@@ -10,7 +11,7 @@ pipeline {
         } 
 		stage('Build image') {
 			steps{       
-				docker.build("rajendran1166/pyweb")			
+				app = docker.build("rajendran1166/pyweb")			
 				}
 		}		
     }
