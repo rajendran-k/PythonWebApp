@@ -5,8 +5,13 @@ pipeline {
         stage('lint HTML') {
             steps {        
               sh 'echo "syntax checking"'     
-              sh 'tidy -q -e *.html'
+              
             }
-        }        
+        } 
+		stage('Build image') {
+			steps{       
+				docker.build("rajendran1166/pyweb")			
+				}
+		}		
     }
 }
