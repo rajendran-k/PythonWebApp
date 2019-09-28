@@ -1,5 +1,19 @@
 node {
-    def app    
+    def app 
+	stage('Test image') {
+        
+        app.inside {
+            echo "Tests passed"
+			pwd
+        }
+    }
+		
+        stage('lint HTML') {
+            steps {        
+              sh 'echo "syntax checking"'     
+              sh 'tidy -q -e *.html'
+            }
+        }
 
     stage('Build image') {
         /* This builds the actual image */
