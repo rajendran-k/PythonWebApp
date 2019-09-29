@@ -1,18 +1,13 @@
 pipeline {
-    agent any
-	 def app 
+    agent any	 
 
     stages {
         stage('lint HTML') {
             steps {        
               sh 'echo "syntax checking"'     
-              
+			  sh 'docker build --tag rajendran1166/pyweb '              
             }
         } 
-		stage('Build image') {
-			steps{       
-				app = docker.build("rajendran1166/pyweb")			
-				}
-		}		
+		
     }
 }
