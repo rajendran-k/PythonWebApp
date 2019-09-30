@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pyweb
+  labels:
+    app: pyweb
+  namespace: default
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pyweb
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: pyweb
+    spec:
+      containers:
+      - image: rajendran1166/pyweb
+        imagePullPolicy: Always
+        name: pyweb
+        ports:
+        - containerPort: 5000
+          protocol: TCP
