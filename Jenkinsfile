@@ -31,4 +31,18 @@ node {
                 echo "Trying to Push Docker Build to DockerHub"
     }
 	
+	stage('Deploying') {
+      echo 'Deploying to AWS...'
+      dir ('./') {
+        withAWS(credentials: 'aws-credentials', region: 'us-east-2') {
+            sh "aws eks --region us-east-2 update-kubeconfig --name pyweb"
+            sh "kubectl apply -f aws/aws-auth-cm.yaml"            
+            sh "kubectl apply -f aws/deployment.yaml"
+            sh "kubectl apply -f aws/next.yml"
+            sh "kubectl get nodes"
+            sh "kubectl get pods"            
+        }
+      }
+    }
+	
 }
