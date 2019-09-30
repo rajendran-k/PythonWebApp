@@ -16,4 +16,6 @@ class Student:
 		return self.name.capitalize()
 
 	def get_school_name(self):
+		return self.school_name.capitalize()
+
 
