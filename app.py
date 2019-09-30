@@ -6,7 +6,6 @@ students = []
 
 app = Flask(__name__)
 
-
 @app.route("/", methods=["GET", "POST"])
 
 def students_page():
@@ -19,7 +18,6 @@ def students_page():
 		students.append(new_student)
 
 		return redirect(url_for("students_page"))
-
 	return render_template("index.html", students=students)
 
 
