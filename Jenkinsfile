@@ -16,7 +16,7 @@ node {
     stage('Test image') {
         
         app.inside {
-            echo "Tests passed"
+            pylint --disable=R,C,W1203 app.py
         }
     }
 
@@ -30,4 +30,5 @@ node {
             } 
                 echo "Trying to Push Docker Build to DockerHub"
     }
+	
 }
