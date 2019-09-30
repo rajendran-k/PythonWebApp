@@ -32,7 +32,7 @@ node {
     }
 	
 	stage('Deploying') {
-      echo 'Deploying to AWS...'
+      echo 'Deploying to AWS...EKS'
       dir ('./') {
         withAWS(credentials: '34fbae67-03ae-4fc4-9e39-385f84000730', region: 'us-east-2') {
             sh "aws eks --region us-east-2 update-kubeconfig --name pyweb"
