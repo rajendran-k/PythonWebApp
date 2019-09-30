@@ -16,7 +16,7 @@ node {
     stage('Test image') {
         
         app.inside {
-            sh 'pylint --disable=R,C,W1203 app.py'
+            sh 'pylint --disable=R,C,W1203 student.py'
         }
     }
 
