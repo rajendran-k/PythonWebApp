@@ -35,7 +35,7 @@ node {
       echo 'Deploying to AWS...EKS'
       dir ('./') {
         withAWS(credentials: '34fbae67-03ae-4fc4-9e39-385f84000730', region: 'us-east-2') {
-            sh "/home/ubuntu/.local/bin/aws eks --region us-east-2 update-kubeconfig --name pyweb"
+            sh "aws eks --region us-east-2 update-kubeconfig --name pyweb"
             sh "kubectl apply -f aws/aws-auth-cm.yaml"            
             sh "kubectl apply -f aws/deployment.yaml"
             sh "kubectl apply -f aws/next.yml"
